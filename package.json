@@ -1,0 +1,17 @@
+{
+  "name": "notwest",
+  "version": "1.0.0",
+  "description": "MCR Codes banking project",
+  "main": "src/main.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "jest": "^23.5.0"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "Ian King",
+  "license": "ISC"
+}
