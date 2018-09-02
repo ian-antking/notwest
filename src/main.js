@@ -1,5 +1,5 @@
 class CurrentAccount{
-    constructor(openingDeposit){
+    constructor(openingDeposit = 0){
         this.balance = openingDeposit;
         this.statement = [];
     }
