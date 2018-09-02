@@ -28,7 +28,7 @@ describe('Current Account Methods', () => {
     });
     it('checkBalance method returns account.balance', () => {
         johnsmith = new CurrentAccount(10000);
-        balance = johnsmith.checkBalance();
+         const balance = johnsmith.checkBalance();
         expect(balance).toEqual(balance);
     });
     it('account.statement property is a list of transactions on account', () => {
@@ -36,5 +36,19 @@ describe('Current Account Methods', () => {
         johnSmith.deposit(100);
         johnSmith.withdraw(100);
         expect(johnSmith.statement).toEqual(['Deposited £100', 'Withdrew £100']);
+    });
+    it('viewStatement function returns statement as a list of transactions', () => {
+        johnSmith = new CurrentAccount();
+        johnSmith.deposit(100);
+        johnSmith.withdraw(100);
+        expect(johnSmith.viewStatement()).toEqual(['Deposited £100', 'Withdrew £100']);
+    });
+    it('viewStatement function can be filtered by money in or money out', () => {
+        johnSmith = new CurrentAccount();
+        johnSmith.deposit(100);
+        johnSmith.withdraw(100);
+        expect(johnSmith.viewStatement('all')).toEqual(['Deposited £100', 'Withdrew £100']);
+        expect(johnSmith.viewStatement('in')).toEqual(['Deposited £100']);
+        expect(johnSmith.viewStatement('out')).toEqual(['Withdrew £100']);
     });
 });

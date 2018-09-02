@@ -18,8 +18,26 @@ class CurrentAccount{
         return this.balance;
     };
 
-    viewStatement(){
-        this.statement.map(event => console.log(event));
+    viewStatement(filter = 'all'){
+        if(filter === 'in'){
+            return this.statement.filter(event => event[0] === 'D');
+        }else if(filter === 'out'){
+            return this.statement.filter(event => event[0] === 'W');
+        }else{
+            return this.statement;
+        };
+    };
+    
+    printStatement(filter = 'all'){
+        if(filter === 'in'){
+            const filteredStatement = this.statement.filter(event => event[0] === 'D');
+             return filteredStatement.map(even => console.log(event))
+        }else if(filter === 'out'){
+            const filteredStatement = this.statement.filter(event => event[0] === 'W');
+             return filteredStatement.map(even => console.log(event))
+        }else{
+            return this.statement.map(event => console.log(event));
+        };
     };
     
 }
