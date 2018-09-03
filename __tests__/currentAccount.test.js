@@ -37,11 +37,8 @@ describe('Current Account Methods', () => {
         expect(johnSmith.viewStatement()).toEqual(expectedStatement);
     });
     it('viewStatement function can be filtered by money in or money out', () => {
-        johnSmith = new CurrentAccount();
-        johnSmith.deposit(100);
-        johnSmith.withdraw(100);
-        expect(johnSmith.viewStatement('all')).toEqual(['Deposited £100', 'Withdrew £100']);
-        expect(johnSmith.viewStatement('in')).toEqual(['Deposited £100']);
-        expect(johnSmith.viewStatement('out')).toEqual(['Withdrew £100']);
+        expect(johnSmith.viewStatement('all')).toEqual(expectedStatement);
+        expect(johnSmith.viewStatement('in')).toEqual(['Deposited £5000', 'Deposited £5000',]);
+        expect(johnSmith.viewStatement('out')).toEqual(['Withdrew £5000']);
     });
 });
