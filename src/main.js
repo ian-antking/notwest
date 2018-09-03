@@ -29,15 +29,8 @@ class CurrentAccount{
     };
     
     printStatement(filter = 'all'){
-        if(filter === 'in'){
-            const filteredStatement = this.statement.filter(event => event[0] === 'D');
-             return filteredStatement.map(even => console.log(event))
-        }else if(filter === 'out'){
-            const filteredStatement = this.statement.filter(event => event[0] === 'W');
-             return filteredStatement.map(even => console.log(event))
-        }else{
-            return this.statement.map(event => console.log(event));
-        };
+        const filteredStatement = this.viewStatement(filter);
+        return filteredStatement.map(event => console.log(event));
     };
     
 }
